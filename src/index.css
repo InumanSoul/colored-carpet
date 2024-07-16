@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.squares-container {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  perspective: 560px;
+  perspective-origin: center;
+  display: flex;
+  gap: 5rem;
+  position: absolute;
+}
+
+.square {
+  flex-grow: 1;
+  width: 20rem;
+  height: 20rem;
+  transform: rotateX(45deg);
+  border-radius: 1.25rem;
+}
+
+.square--red {
+  background: red;
+  margin-top: 15%;
+}
+
+.square--blue {
+  background: blue;
+  margin-top: 40%;
+}
+
+.square--green {
+  background: green;
+  margin-top: 30%;
+}
+
+.square--yellow {
+  background: yellow;
+  margin-top: 10%;
+}
