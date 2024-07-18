@@ -12,7 +12,7 @@ interface DisplayItem {
 const useGameLogic = (difficulty: string) => {
   const level = difficulties.find((diff) => diff.name === difficulty)?.value || 1;
   const [displayItems, setDisplayItems] = useState<DisplayItem[]>([]);
-  const intervalRef = useRef<unknown>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const randomItemsNumber = itemsPerLevel[level as keyof typeof itemsPerLevel];
 
   const startGame = () => {

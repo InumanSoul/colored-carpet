@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { difficulties } from "../../config";
-import { FaFire } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
+import LevelsIndicator from "../../components/LevelsIndicator/LevelsIndicator";
 
 const Game = () => {
 
@@ -14,40 +14,7 @@ const Game = () => {
             difficulties.map((diff, index) => (
               <Link key={index} to={`/game/play/${diff.name}`} className="bg-slate-600 hover:bg-slate-700 duration-200 rounded-xl px-4 py-3 text-lg flex items-center justify-between">
                 {diff.action}
-                {
-                  diff.name === 'hard' && (
-                    <div>
-                      <FaFire className="inline-block ms-2 size-5 text-red-500" />
-                      <FaFire className="inline-block ms-2 size-5 text-red-500" />
-                      <FaFire className="inline-block ms-2 size-5 text-red-500" />
-                      <FaFire className="inline-block ms-2 size-5 text-red-500" />
-                    </div>
-                  )
-                }
-                {
-                  diff.name === 'medium' && (
-                    <div>
-                      <FaFire className="inline-block ms-2 size-5 text-amber-400" />
-                      <FaFire className="inline-block ms-2 size-5 text-amber-400" />
-                      <FaFire className="inline-block ms-2 size-5 text-amber-400" />
-                    </div>
-                  )
-                }
-                {
-                  diff.name === 'normal' && (
-                    <div>
-                      <FaFire className="inline-block ms-2 size-5 text-yellow-200" />
-                      <FaFire className="inline-block ms-2 size-5 text-yellow-200" />
-                    </div>
-                  )
-                }
-                {
-                  diff.name === 'easy' && (
-                    <div>
-                      <FaFire className="inline-block ms-2 size-5 text-white" />
-                    </div>
-                  )
-                }
+                <LevelsIndicator level={diff.name} />
               </Link>
             ))
           }

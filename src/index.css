@@ -23,26 +23,42 @@ body {
   flex-grow: 1;
   width: 20rem;
   height: 20rem;
-  transform: rotateX(45deg);
   border-radius: 1.25rem;
+  animation: infinite 5s ease square;
 }
 
 .square--red {
   background: red;
-  margin-top: 15%;
+  margin-top: 10%;
+  animation: infinite 4s ease square;
 }
 
 .square--blue {
   background: blue;
-  margin-top: 40%;
+  margin-top: 30%;
+  animation: infinite 5s ease square;
 }
 
 .square--green {
   background: green;
-  margin-top: 30%;
+  margin-top: 20%;
+  animation: infinite 7s ease square;
 }
 
 .square--yellow {
   background: yellow;
-  margin-top: 10%;
+  margin-top: -5%;
+  animation: infinite 9s ease square;
+}
+
+@keyframes square {
+  0% {
+    transform: translate3d(0,0,0) rotateX(45deg) perspective(60px);
+  }
+  50% {
+    transform: translate3d(0,40px,0) rotateX(45deg) perspective(60px);
+  }
+  100% {
+    transform: translate3d(0,0,0) rotateX(45deg) perspective(60px);
+  }
 }
