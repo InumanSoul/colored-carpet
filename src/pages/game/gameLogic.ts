@@ -17,9 +17,6 @@ export const generateRandomItems = (maxItems: number): DisplayItem[] => {
   const usedTypes: Set<string> = new Set();
 
   for (let i = 0; i < numberOfItems; i++) {
-    // const chosenItemIndex = Math.floor(Math.random() * availableItems.length);
-    // const item = availableItems.splice(chosenItemIndex, 1)[0];
-
     const chosenColorIndex = Math.floor(Math.random() * availableColors.length);
     const chosenColor = availableColors.splice(chosenColorIndex, 1)[0];
 

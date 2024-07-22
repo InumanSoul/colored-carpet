@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./pages/home"
 import Game from "./pages/game"
 import GameBoard from "./pages/game/play"
+import Guide from "./pages/guide"
 
 const App = () => {
 
@@ -17,6 +18,10 @@ const App = () => {
     {
       path: '/game/play/:difficulty',
       element: <GameBoard />,
+    },
+    {
+      path: '/guide',
+      element: <Guide />,
     }
   ])
 
