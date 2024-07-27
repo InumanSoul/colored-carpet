@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Button from "../../components/Button/button";
 
 const Home = () => {
   return (
@@ -13,12 +13,12 @@ const Home = () => {
         <h1 className="text-7xl font-black">Alfombra de colores</h1>
         <p className="text-2xl">El juego interactivo para mover el cuerpo.</p>
         <div className="flex gap-2 w-fit mx-auto">
-          <Link to='/game' className="text-white shadow-md px-5 py-3 font-bold text-lg bg-gradient-to-b hover:bg-gradient-to-t from-orange-500 to-orange-600 inline-block rounded-full">
+          <Button to="/game" variant="primary">
             Nuevo juego
-          </Link>
-          <Link to='/guide' className="text-white border-2 border-white shadow-md px-5 py-3 font-bold text-lg inline-block rounded-full hover:bg-white/15">
+          </Button>
+          <Button to='/guide' variant="secondary">
             Instrucciones
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

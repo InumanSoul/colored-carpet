@@ -4,6 +4,7 @@ import rightFoot from '../../../assets/right-foot.svg'
 import leftFoot from '../../../assets/left-foot.svg'
 import rightHand from '../../../assets/right-hand.svg'
 import leftHand from '../../../assets/left-hand.svg'
+import { motion } from 'framer-motion'
 
 interface GameBlockProps {
   item: string
@@ -22,11 +23,17 @@ const GameBlock = ({ item, color, classes }: GameBlockProps) => {
   }
 
   return (
-    <div className={
-      `rounded-lg w-full h-full flex items-center justify-center text-center text-3xl ${color} ${classes}`
-    }>
+    <motion.div 
+      key={item}
+      initial={{ scale: 0.7, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.7, opacity: 0 }}
+      className={
+        `rounded-lg w-full h-full flex items-center justify-center text-center text-3xl ${color} ${classes}`
+      }
+    >
       <img src={availableItems[item as keyof typeof availableItems]} alt={item} className='size-28 object-contain' />
-    </div>
+    </motion.div>
   )
 }
 

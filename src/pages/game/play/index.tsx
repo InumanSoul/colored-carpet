@@ -6,6 +6,7 @@ import useGameLogic from "../../../hooks/useGameLogic";
 import { useState } from "react";
 import { RiPlayCircleFill } from "react-icons/ri";
 import LevelsIndicator from "../../../components/LevelsIndicator/LevelsIndicator";
+import { AnimatePresence, motion } from "framer-motion";
 
 const GameBoard = () => {
   const { difficulty } = useParams();
@@ -28,7 +29,12 @@ const GameBoard = () => {
       <BoardHeader level={level} isPlaying={isPlaying} pause={handlePause} />
       {
         !isPlaying && (
-          <div className="w-full h-dvh fixed top-0 left-0 bg-black/65 flex items-center justify-center z-40">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full h-dvh fixed top-0 left-0 bg-black/65 flex items-center justify-center z-40"
+          >
             <div className="bg-slate-800 w-full max-w-lg text-white rounded-xl p-5">
               <div className="flex items-center justify-between mb-5">
                 <h1 className="text-4xl font-black text-center">Nivel {level}</h1>
@@ -42,22 +48,23 @@ const GameBoard = () => {
                 Salir del juego
               </Link>
             </div>
-          </div>
+          </motion.div>
         )
       }
-
-      <div className="w-full h-dvh grid grid-rows-2 grid-cols-2 gap-5 p-5 bg-slate-900">
-        {
-          displayItems.map((displayItem, index) => (
-            <GameBlock 
-              key={index}
-              color={displayItem.colorClass}
-              classes={displayItem.positionClass}
-              item={displayItem.item}
-            />
-          ))
-        }
-      </div>
+        <div className="w-full h-[calc(100dvh-68px)] grid grid-rows-2 grid-cols-2 gap-5 p-5 bg-slate-900">
+          <AnimatePresence>
+          {
+            displayItems.map((displayItem, index) => (
+              <GameBlock 
+                key={index}
+                color={displayItem.colorClass}
+                classes={displayItem.positionClass}
+                item={displayItem.item}
+              />
+            ))
+          }
+          </AnimatePresence>
+        </div>
     </>
   )
 }
