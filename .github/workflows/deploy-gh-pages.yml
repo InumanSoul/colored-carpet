@@ -1,6 +1,6 @@
 # .github/workflows/deploy.yml
 
-name: Deploy React + Vite to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow on push to the main branch
@@ -33,17 +33,20 @@ jobs:
 
       # Step 3: Install dependencies using npm or yarn
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       # Step 4: Build the project for production
       - name: Build the project
         run: npm run build
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
       # Step 5: Upload the built site as an artifact (GitHub Pages deploys from this)
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist # Vite output directory
+          path: './dist' # Vite output directory
 
   # Deployment job to GitHub Pages
   deploy:
